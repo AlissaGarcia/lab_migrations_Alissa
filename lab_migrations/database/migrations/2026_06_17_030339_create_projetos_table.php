@@ -9,17 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-   public function up(): void
+    public function up(): void
 {
-    Schema::table('produtos', function (Blueprint $table) {
-        $table->text('descricao')->nullable()->after('nome');
+    Schema::table('tarefas', function (Blueprint $table) {
+        $table->string('prioridade')->after('status');
     });
 }
-
 public function down(): void
 {
-    Schema::table('produtos', function (Blueprint $table) {
-        $table->dropColumn('descricao');
+    Schema::table('tarefas', function (Blueprint $table) {
+        $table->dropColumn('prioridade');
     });
 }
 };
